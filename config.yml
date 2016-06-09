@@ -1,0 +1,29 @@
+site:
+    title: 白夜里的影子
+    subtitle: 
+    # logo: -/images/avatar.jpg
+    limit: 10
+    theme: theme
+    lang: zh
+    url: http://blog.kirigiri.me/
+    # root: /blog
+
+authors:
+    me:
+        name: KiriGiri
+        intro: 我的博客
+        avatar: -/images/avatar.jpg
+
+build:
+    port: 1313
+    # Copied files to public folder when build
+    copy:
+        - theme/bundle
+        - theme/favicon.ico
+        - theme/robots.txt
+        - source/images
+    # Excuted command when use 'ink publish'
+    publish: |
+        git add . -A
+        git commit -m "update"
+        git push origin
