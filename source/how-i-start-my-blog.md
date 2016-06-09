@@ -1,4 +1,4 @@
-title: Namesilo+Cloudxns+Nginx+Golang+LetsEncrypt建站记录
+title: 博客的建站过程记录
 date: 2016-06-09 21:09:34 +0800
 update: 2016-06-09 21:09:34 +0800
 author: me
@@ -12,11 +12,10 @@ tags:
 
 ## Namesilo
 也不知道是发了什么疯，突然就想着要建一个个人博客了。以前总觉得买域名
-太贵，个人博客也不是刚需，但昨天不声不响就剁手花了100多大洋,买了```kirigiri.me```
+太贵，而且个人博客也不是刚需，但昨天不声不响就剁手花了100多大洋,买了```kirigiri.me```
 这个域名。然后就折腾起了我搬瓦工的服务器。
-```javascript
-function make(){
-    relay(this)
-}
-```
+
+## DNS
+卖完域名当然就是选DNS服务商了，那些什么NS记录用来指定域名解析服务器、A记录用来对应ipv4地址与域名、
+AAAA记录用来对应ipv6地址与域名、CNAME用来指定别名什么的我才不知道
     
