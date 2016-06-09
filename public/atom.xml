@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
-  <title>白夜里的影子</title>
-  <id>http://blog.kirigiri.me/</id>
-  <updated>2016-06-09T04:10:22+03:00</updated>
-  <link href="http://blog.kirigiri.me/"></link>
+  <title>雾里影 雨中泪</title>
+  <id>https://kirigiri.me/</id>
+  <updated>2016-06-09T15:56:07+03:00</updated>
+  <subtitle>All those moments will be lost in time.</subtitle>
+  <link href="https://kirigiri.me/"></link>
   <author>
-    <name>白夜里的影子</name>
+    <name>雾里影 雨中泪</name>
   </author>
   <entry>
     <title>我的第一个博客</title>
     <updated>2016-06-09T03:31:23+03:00</updated>
-    <id>tag:,2016-06-09:/blog.kirigiri.me/post/2016/06/09/welcome.html</id>
-    <content type="html"></content>
-    <link href="http:/blog.kirigiri.me/post/2016/06/09/welcome.html"></link>
+    <id>tag:kirigiri.me,2016-06-09:/welcome.html</id>
+    <content type="html">&lt;h1&gt;白夜里的影子&lt;/h1&gt;&#xA;</content>
+    <link href="https://kirigiri.me/welcome.html"></link>
     <author>
-      <name>KiriGiri</name>
+      <name>雾里</name>
     </author>
   </entry>
 </feed>
