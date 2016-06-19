@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="博客,">
+        <meta name="description" content="博客的建站过程记录">
+        <link rel="stylesheet" href="/bundle/index.css">
+        <title>博客的建站过程记录</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">雾里影 雨中泪</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+</ul>
+
+            <article class="main article">
+                <h1 class="title">博客的建站过程记录</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/avatar.jpg);"></span>
+                    <a class="name" href="/about.me.html">雾里</a>
+                    <span class="date" data-time="1465477774">
+                        <span class="from"></span>
+                        <span class="date" data-time="1465485084">(<span class="from"></span> 更新)</span>
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/%e5%8d%9a%e5%ae%a2/index.html">博客</a></span>
+                </section>
+                <article class="content"><h2>Namesilo</h2>
+
+<p>也不知道是发了什么疯，突然就想着要建一个个人博客了。以前总觉得买域名
+太贵，而且个人博客也不是刚需，但昨天不声不响就剁手花了100多大洋,买了<code>kirigiri.me</code>
+这个域名。然后就折腾起了我搬瓦工的服务器。</p>
+
+<h2>DNS</h2>
+
+<p>卖完域名当然就是选DNS服务商了，什么NS记录用来指定域名解析服务器、
+A记录用来对应ipv4地址与域名、AAAA记录用来对应ipv6地址与域名、
+CNAME用来指定别名,这些我才不知道呢。</p>
+
+<p>开始是选的DNSPOD来解析域名，但是添加子域名怎么也解析不了，经过chrome吧吧友指点后，
+放弃了神坑DNSPOD换了CloudXns，不知道怎么的反正就是能够解析了，结果后来才发现
+其实是学校DNS的锅。</p>
+
+<h2>Nginx</h2>
+
+<p>我的博客是用<code>Go</code>和<code>ink</code>构建的，话说Go本身就可以当服务端用，为什么还要Nginx呢？
+其实是这样的,
+之前我给老爸写的一个<a href="https://lotdb.kirigiri.me">大乐透和值筛选</a>的web
+应用放在服务器上，现在要撘博客，两个程序不能耦合进一个程序里，分开又不能同时占用80端口
+于是就愉快地决定用Nginx来当代理。</p>
+
+<p>可是我的域名的子域名总是解析不了，我开始以为DNSPOD子域名解析是残废的，于是我又愉快决定根据不同的URL路径
+来决定代理到哪个upstream。可是到这一步就不愉快了</p>
+
+<h4>首先我把<code>kirigiri.me/lotdb/*</code>代理到我的大乐透筛选服务端.[^1]</h4>
+
+<p>[^1]: <a href="http://nginx.org">Ngninx doc</a></p>
+
+<pre><code class="language-javascript">location  /lotdb {
+    proxy_pass http://127.0.0.1:$lotdb_port/
+}
+location ^~ /lotdb/ {
+    proxy_pass http://127.0.0.1:$lotdb_port/
+}
+</code></pre>
+
+<p>第一个规则防止nginx把<code>/lotdb</code>302跳转到<code>/lotdb/</code>
+第二个规则把类似请求<code>http://kirigiri.me/lotdb/other/path</code>
+代理到<code>http://127.0.0.1:$lotdb_port/other/path</code></p>
+
+<h4>然后就是把<code>kirigiri.me/blog/*</code>代理到博客程序了</h4>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/avatar.jpg);"></div>
+                    <a class="name" href="/about.me.html">雾里</a>
+                    <div class="intro">All those moments will be lost in time.</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                </section>
+                <section id="disqus_thread"></section>
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        雾里影 雨中泪 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+</html>
