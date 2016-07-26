@@ -72,11 +72,11 @@ server {
 与其说是开源，不如说是存储在github上吧。
 nginx.conf里配置和```kirigiri.me```大同小异。
 
-### ```git.kirigiri.me```
+#### ```git.kirigiri.me```
 用的是开源的git服务端[https://github.com/gogits/gogs](Gogs),
 不过我那256M内存的小服务器好像承受不起，web端三天两头抛500错误，大概是git操作比较费内存。
 
-### Shadowsocks服务端
+#### Shadowsocks服务端
 对了，其实这才是我买这个服务器最开始的目的，那就是across the wall。shadowsocks服务端我也用的是Go语言版本的。
 因为我比较熟悉Go，要添加功能的话，源码修改起来比较方便，内存占用也比较省。
 
