@@ -64,16 +64,16 @@ server {
 ```
 
 ### 其他服务端
-我还在服务器上搭了其他的服务：[https://lotdb.kirigiri.me](大乐透筛选)、[https://git.kirigiri.me]一个自助的git服务端。
+我还在服务器上搭了其他的服务：[大乐透筛选](https://lotdb.kirigiri.me)、[一个自助的git服务端](https://git.kirigiri.me)。
 
 #### ```lotdb.kirigiri.me```
 我老爸迷上彩票很久了，每次总是抱怨说用手算和值、猜数字很难，于是我就花了大概一个星期业余时间写了一小Web应用，
-后端是Go和sqlite，就是简单的读取数据库，前端用Vuejs和VueStrap，界面还马马虎虎，开源在[https://github.com/Felamande/lotdb](github)上，
+后端是Go和sqlite，就是简单的读取数据库，前端用Vuejs和VueStrap，界面还马马虎虎，开源在[github](https://github.com/Felamande/lotdb)上，
 与其说是开源，不如说是存储在github上吧。
 nginx.conf里配置和```kirigiri.me```大同小异。
 
 #### ```git.kirigiri.me```
-用的是开源的git服务端[https://github.com/gogits/gogs](Gogs),
+用的是开源的git服务端[Gogs](https://github.com/gogits/gogs),
 不过我那256M内存的小服务器好像承受不起，web端三天两头抛500错误，大概是git操作比较费内存。
 
 #### Shadowsocks服务端
@@ -85,7 +85,7 @@ nginx.conf里配置和```kirigiri.me```大同小异。
 大部分的证书都是商业公司颁发，要钱的。不过目前也出现了像Let's Encrypt这样的组织，免费签发
 可信任的证书，推动互联网全面走向安全加密的时代。
 Let's Encrypt证书的签发和配置非常简单。
-首先从从他们的github仓库克隆下来[https://github.com/certbot/certbot](全自动脚本),然后运行：
+首先从从他们的github仓库克隆下来[全自动脚本](https://github.com/certbot/certbot),然后运行：
 ```./letsencrypt-auto certonly -d kirigiri.me -d lotdb.kirigiri.me -d static.kirigiri.me -d git.kirigiri.me```
 letsencrypt不支持通配符，防止正式滥用。在运行自动脚本之前先要关闭nginx，
 因为脚本需要通过nginx来验证这个域名确实是你的。然后证书以及配置会存在```/etc/letsencrypt```目录下。
@@ -119,7 +119,7 @@ server {
 HSTS是用来强制客户端使用HTTPS协议的，在每个域名的server字段里加上：
 ```add_header Strict-Transport-Security "max-age=31536000";```
 
-至此HTTPS的配置就完成了.如果你想测试自己Web服务器的安全性到底如何，可以去[https://ssllab.com](ssllab网站)上测试，
+至此HTTPS的配置就完成了.如果你想测试自己Web服务器的安全性到底如何，可以去[ssllab网站](https://ssllab.com)上测试，
 测试完之后会给你测试报告和一些提升安全性的配置建议。
 
 ## 后记
