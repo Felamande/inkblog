@@ -87,7 +87,7 @@ nginx.conf里配置和```kirigiri.me```大同小异。
 Let's Encrypt证书的签发和配置非常简单。
 首先从从他们的github仓库克隆下来[全自动脚本](https://github.com/certbot/certbot),然后运行：
 ```./letsencrypt-auto certonly -d kirigiri.me -d lotdb.kirigiri.me -d static.kirigiri.me -d git.kirigiri.me```
-letsencrypt不支持通配符，防止正式滥用。在运行自动脚本之前先要关闭nginx，
+letsencrypt不支持通配符，为了防止证书被滥用。在运行自动脚本之前先要关闭nginx，
 因为脚本需要通过nginx来验证这个域名确实是你的。然后证书以及配置会存在```/etc/letsencrypt```目录下。
 然后配置nginx：
 ```javascript
