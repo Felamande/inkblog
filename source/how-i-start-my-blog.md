@@ -102,7 +102,7 @@ ssl_dhparam /etc/nginx/dhparams.pem;
 最优先的当然是最安全的，感叹号阻止掉不安全加密方式。ssl_dhparam用来定义一个非默认的，更强的
 Diffiel-Hellman输入参数，主要用来保证前向保密。
 这个文件使用openssl产生，```openssl dhparam -out dhparam.pem 4096```.
-然后别忘了在server字段里写上```listen 443 ssl;```
+别忘了在server字段里写上```listen 443 ssl;```
 
 最后还有两点，就是http到https的跳转以及HSTS。
 因为没有监听80端口，不提供HTTP的访问，所有的http协议的请求都无法访问网站，
