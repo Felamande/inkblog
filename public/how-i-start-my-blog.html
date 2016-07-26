@@ -56,9 +56,7 @@ CNAME用来指定别名,这些我才不知道呢。</p>
 <p>可是我的域名的子域名总是解析不了，我开始以为DNSPOD子域名解析是残废的，于是我又愉快决定根据不同的URL路径
 来决定代理到哪个upstream。可是到这一步就不愉快了</p>
 
-<h4>首先我把<code>kirigiri.me/lotdb/*</code>代理到我的大乐透筛选服务端.[^1]</h4>
-
-<p>[^1]: <a href="http://nginx.org">Ngninx doc</a></p>
+<h4>首先我把<code>kirigiri.me/lotdb/*</code>代理到我的大乐透筛选服务端.<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></h4>
 
 <pre><code class="language-javascript">location  /lotdb {
     proxy_pass http://127.0.0.1:$lotdb_port/
@@ -73,6 +71,15 @@ location ^~ /lotdb/ {
 代理到<code>http://127.0.0.1:$lotdb_port/other/path</code></p>
 
 <h4>然后就是把<code>kirigiri.me/blog/*</code>代理到博客程序了</h4>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="http://nginx.org">Ngninx doc</a>
+</li>
+</ol>
+</div>
 </article>
                 <section class="author">
                     <div class="avatar" style="background-image: url(/images/avatar.jpg);"></div>
